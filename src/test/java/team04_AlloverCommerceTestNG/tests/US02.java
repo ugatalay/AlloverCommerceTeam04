@@ -5,5 +5,6 @@ public class US02 {
         System.out.println("siyami");
         System.out.println("eryılmaz");
         System.out.println("hjkk");
+        System.out.println("galatasray");
     }
 }

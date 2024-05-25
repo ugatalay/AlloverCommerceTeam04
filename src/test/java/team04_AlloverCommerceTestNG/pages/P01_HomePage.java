@@ -1,6 +1,5 @@
 package team04_AlloverCommerceTestNG.pages;
 
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -12,12 +11,16 @@ public class P01_HomePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    @FindBy(xpath = "//span[.='Sign In']")
+    public WebElement signIn;
+
+    @FindBy(xpath = "//div[@class='search-wrapper hs-simple']//input[@name='s']")
+    public WebElement searchBox;
+
     @FindBy(xpath = "//span[.='Register']")
     public WebElement registerButton;
-}
 
-
-
- /*   @FindBy(linkText = "Sign Out")
+    /*   @FindBy(linkText = "Sign Out")
 public WebElement SignOutButton;*/
 
+}

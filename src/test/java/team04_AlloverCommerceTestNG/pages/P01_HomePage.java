@@ -8,7 +8,7 @@ import team04_AlloverCommerceTestNG.utilities.Driver;
 public class P01_HomePage {
 
     public P01_HomePage() {
-        PageFactory.initElements(Driver.getDriver(),this);
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     @FindBy(xpath = "//span[.='Sign In']")
@@ -17,8 +17,10 @@ public class P01_HomePage {
     @FindBy(xpath = "//div[@class='search-wrapper hs-simple']//input[@name='s']")
     public WebElement searchBox;
 
+    @FindBy(xpath = "//span[.='Register']")
+    public WebElement registerButton;
 
-
-
+    /*   @FindBy(linkText = "Sign Out")
+public WebElement SignOutButton;*/
 
 }

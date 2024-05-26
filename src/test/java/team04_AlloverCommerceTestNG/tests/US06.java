@@ -1,6 +1,7 @@
 package team04_AlloverCommerceTestNG.tests;
 
 import org.openqa.selenium.Keys;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import team04_AlloverCommerceTestNG.pages.*;
 import team04_AlloverCommerceTestNG.utilities.*;
@@ -20,8 +21,10 @@ public class US06 {
         mainPage.userVendorLoginPage().passwordBox.sendKeys(ConfigReader.getProperty("userpassword"));
         mainPage.userVendorLoginPage().signInButton.click();
         ReusableMethods.waitForSecond(3);
+
         mainPage.homePage().searchBox.sendKeys(ConfigReader.getProperty("product1")+ Keys.ENTER);
         ReusableMethods.waitForSecond(3);
+        Assert.assertTrue(mainPage.shoppingPage().samsungS23.isDisplayed());
 
     }
 

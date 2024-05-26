@@ -3,9 +3,7 @@ package team04_AlloverCommerceTestNG.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import team04_AlloverCommerceTestNG.utilities.ConfigReader;
-import team04_AlloverCommerceTestNG.utilities.Driver;
-import team04_AlloverCommerceTestNG.utilities.ReusableMethods;
+import team04_AlloverCommerceTestNG.utilities.*;
 
 public class P03_LoginPage {
 
@@ -28,7 +26,6 @@ public class P03_LoginPage {
     P00_MainPage mainPage = new P00_MainPage();
     public void login() {
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-
         mainPage.homePage().signIn.click();
         mainPage.userVendorLoginPage().usernameBox.click();
         mainPage.userVendorLoginPage().usernameBox.sendKeys(ConfigReader.getProperty("username"));

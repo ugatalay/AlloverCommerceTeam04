@@ -7,6 +7,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import team04_AlloverCommerceTestNG.pages.P00_MainPage;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,7 +20,7 @@ import java.util.List;
 
 public class ReusableMethods {
 
-
+    static P00_MainPage mainPage = new P00_MainPage();
 
     protected ExtentReports extentReports;
     protected ExtentHtmlReporter extentHtmlReporter;
@@ -187,4 +188,14 @@ public class ReusableMethods {
         String attribute_Value = (String) js.executeScript("return document.getElementById('" + id + "')." + attributeName);
         System.out.println("Attribute Value: = " + attribute_Value);
     }
+    //login islemleri data gondermek icin
+    public static void  userCustomerlogin(String username,String email ,String password){
+        mainPage.registerPage().userNameBox.sendKeys(username);
+        mainPage.registerPage().yourEmailBox.sendKeys(email);
+        mainPage.registerPage().passWordBox.sendKeys(password);
+        mainPage.registerPage().SignInBox.click();
+    }
+
+
+
 }

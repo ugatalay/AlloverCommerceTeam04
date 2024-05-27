@@ -1,8 +1,11 @@
 package team04_AlloverCommerceTestNG.utilities;
 
+import com.github.javafaker.Faker;
+import org.openqa.selenium.Keys;
 import org.testng.annotations.DataProvider;
 
 public class DataProviderUtils {
+      static Faker faker = new Faker();
 
     @DataProvider(name = "positiveTestData")
     public static Object[][] provideBoundaryValueTestData() {
@@ -29,4 +32,45 @@ public class DataProviderUtils {
                 { "-5" }
         };
     }
+
+    @DataProvider(name = "LoginData")
+    public static Object[][] provideLoginTestData() {
+        return new Object[][] {
+                { "veli43456@"},
+                { "Ali12345_" },
+                { "Ali12345-"} ,
+
+
+               /* { ""}         ,
+                { "Ali12345?"} ,
+                {" ".repeat(8)},  */
+
+
+
+              // { "Ali1234@", faker.internet().emailAddress(),faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},
+              // { "Ali1234@", faker.internet().emailAddress(),faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},
+              // { "Ali1234@", faker.internet().emailAddress(),faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},
+              // { "Ali1234@", faker.internet().emailAddress(),faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},
+              // { "Ali1234@", faker.internet().emailAddress(),faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},
+              //
+              //
+
+
+
+
+
+                {Keys.SPACE,faker.internet().emailAddress(),faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},
+
+        };
+    }
+
+
+
+
+
+
+
+
+
+
 }

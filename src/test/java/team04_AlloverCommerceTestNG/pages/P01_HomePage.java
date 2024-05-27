@@ -14,10 +14,17 @@ public class P01_HomePage {
 
     @FindBy(xpath = "//span[.='Register']")
     public WebElement registerButton;
+
+
+
+
+
+
+
+
+
+
 }
 
 
-
- /*   @FindBy(linkText = "Sign Out")
-public WebElement SignOutButton;*/
 

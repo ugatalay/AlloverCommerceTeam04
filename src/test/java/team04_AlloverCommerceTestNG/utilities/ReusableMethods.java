@@ -189,10 +189,11 @@ public class ReusableMethods {
         System.out.println("Attribute Value: = " + attribute_Value);
     }
     //login islemleri data gondermek icin
-    public static void  userCustomerlogin(String username,String email ,String password){
+    public static void  customerlogin(String username,String email ,String password){
         mainPage.registerPage().userNameBox.sendKeys(username);
         mainPage.registerPage().yourEmailBox.sendKeys(email);
         mainPage.registerPage().passWordBox.sendKeys(password);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         mainPage.registerPage().SignInBox.click();
     }
 

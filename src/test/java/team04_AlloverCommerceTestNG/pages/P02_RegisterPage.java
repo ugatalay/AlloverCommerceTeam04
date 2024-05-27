@@ -17,20 +17,22 @@ public class P02_RegisterPage {
     @FindBy(id = "reg_email")
     public WebElement yourEmailBox ;
 
-
     @FindBy(id = "reg_password")
     public WebElement passWordBox;
 
     @FindBy(id = "register-policy")
       public WebElement checkBox;
 
-    @FindBy(name = "register")
-    public WebElement SignInBox
-            ;
+   @FindBy(name = "register")
+    public WebElement SignInBox;
 
-    @FindBy(xpath = "//a[@class ='login logout inline-type']")
-    public WebElement signOutLink
-            ;
+    @FindBy(xpath = "//button[@name='login']")
+
+    public WebElement signInButton;
+
+    @FindBy(xpath="//a[@class='login logout inline-type']")
+    public WebElement SingOutLink;
+
 
 
 

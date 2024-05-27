@@ -24,6 +24,7 @@ public class P00_MainPage {
         private P18_VendorProductManagerPage vendorProductManagerPage;
         private P19_OrdersPage orderPage;
         private P20_VendorCouponsPage vendorCouponsPage;
+        private P21_FakeMailPage fakeMailPage;
 
 
         public P01_HomePage homePage () {
@@ -161,6 +162,12 @@ public class P00_MainPage {
             vendorCouponsPage= new P20_VendorCouponsPage();
         }
         return vendorCouponsPage;
+    }
+    public P21_FakeMailPage fakeMailPage(){
+        if(fakeMailPage== null) {
+            fakeMailPage= new P21_FakeMailPage();
+        }
+        return fakeMailPage;
     }
 
 }

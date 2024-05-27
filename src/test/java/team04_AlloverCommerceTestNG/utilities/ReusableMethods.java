@@ -7,6 +7,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import team04_AlloverCommerceTestNG.pages.P00_MainPage;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -24,6 +25,8 @@ public class ReusableMethods {
     protected ExtentReports extentReports;
     protected ExtentHtmlReporter extentHtmlReporter;
     protected ExtentTest extentTest;
+
+    protected static P00_MainPage mainPage;
 
     public void createExtentReport(String testName, String qaName, String name){
         //Bu objecti raporlari olusturmak ve yönetmek icin kullanacağız
@@ -186,5 +189,37 @@ public class ReusableMethods {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         String attribute_Value = (String) js.executeScript("return document.getElementById('" + id + "')." + attributeName);
         System.out.println("Attribute Value: = " + attribute_Value);
+    }
+    public static void clickBecomeVendor(){
+        // Web sitesine git
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+
+        // Register alanına tıkla
+        mainPage.homePage().registerButton.click();
+
+        // Açılan pop-up ta "Become a Vendor" alanına tıkla
+        mainPage.registerPage().becomeAVendorLink.click();
+
+    }
+    public static void vendorRegisterMailInput (){
+        // Email alanına veri gir
+        Driver.getDriver().switchTo().newWindow(WindowType.TAB);
+        Driver.getDriver().get(ConfigReader.getProperty("fakeMailUrl"));
+        String fakeEmail = mainPage.fakeMailPage().fakeEmail.getText();
+        ReusableMethods.switchToWindow(0);
+        mainPage.vendorRegisterPage().emailBox.sendKeys(fakeEmail);
+
+    }
+    public static void vendorRegisterCodeInput (){
+        // Mail adresine gelen kodu Verification Code alanına gir
+        ReusableMethods.switchToWindow(1);
+        ReusableMethods.visibleWait(mainPage.fakeMailPage().verificationCodeMail,5);
+        mainPage.fakeMailPage().verificationCodeMail.click();
+        ReusableMethods.scrollEnd();
+        Driver.getDriver().switchTo().frame("iframeMail");
+        String code =mainPage.fakeMailPage().verificationCode.getText();
+        ReusableMethods.switchToWindow(0);
+        mainPage.vendorRegisterPage().verificationCodeBox.sendKeys(code);
+
     }
 }

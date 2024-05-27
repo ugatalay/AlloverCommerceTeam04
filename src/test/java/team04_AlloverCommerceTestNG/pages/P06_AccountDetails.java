@@ -23,5 +23,13 @@ public class P06_AccountDetails {
     @FindBy(id = "account_email")
     public WebElement email;
 
+    @FindBy(id = "password_current")
+    public WebElement passwordCurrent;
+
+    @FindBy(id = "password_1")
+    public WebElement newPassword;
+
+    @FindBy(id = "password_2")
+    public WebElement confirmPassword;
 
 }

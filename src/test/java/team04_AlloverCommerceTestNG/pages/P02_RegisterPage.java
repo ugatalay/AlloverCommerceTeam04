@@ -12,16 +12,8 @@ public class P02_RegisterPage {
     }
 
 
-
     @FindBy(linkText = "Become a Vendor")
     public WebElement becomeAVendorLink;
-
-
-
-
-
-
-
 
     @FindBy(xpath = "(//input[@type='text'])[2]")
     public WebElement userName;

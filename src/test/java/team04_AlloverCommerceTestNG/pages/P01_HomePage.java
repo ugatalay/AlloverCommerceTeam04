@@ -10,14 +10,17 @@ public class P01_HomePage {
     public P01_HomePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
-     @FindBy( xpath= "//span[.='Register']")
+
+    @FindBy(xpath = "//span[.='Sign In']")
+    public WebElement signIn;
+
+    @FindBy(xpath = "//div[@class='search-wrapper hs-simple']//input[@name='s']")
+    public WebElement searchBox;
+
+    @FindBy(xpath = "//span[.='Register']")
     public WebElement registerButton;
 
-
-
-
-
+    /*   @FindBy(linkText = "Sign Out")
+public WebElement SignOutButton;*/
 
 }
- /*   @FindBy(linkText = "Sign Out")
-public WebElement SignOutButton;*/

@@ -23,8 +23,8 @@ public class US07  {
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
 
-        P00_MainPage.shoppingPage().searchbox.click();
-        P00_MainPage.shoppingPage().searchbox.sendKeys("Iphone", Keys.ENTER);
+        //P00_MainPage.shoppingPage().searchbox.click();
+        //P00_MainPage.shoppingPage().searchbox.sendKeys("Iphone", Keys.ENTER);
 
 
        WebDriver driver = Driver.getDriver();
@@ -33,8 +33,8 @@ public class US07  {
 
 
 
-        actions.moveToElement(P00_MainPage.shoppingPage().iphone15ProMaxIcon).perform();
-        P00_MainPage.shoppingPage().iphone15ProMaxIcon.click();
+        //actions.moveToElement(P00_MainPage.shoppingPage().iphone15ProMaxIcon).perform();
+        //P00_MainPage.shoppingPage().iphone15ProMaxIcon.click();
 
 
 

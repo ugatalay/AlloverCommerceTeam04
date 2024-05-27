@@ -12,8 +12,6 @@ public class P02_RegisterPage {
     }
 
 
-    public P02_RegisterPage() { PageFactory.initElements(Driver.getDriver(), this);
-    }
 
     @FindBy(linkText = "Become a Vendor")
     public WebElement becomeAVendorLink;

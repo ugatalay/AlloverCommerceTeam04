@@ -60,6 +60,11 @@ public class P07_ShoppingPage {
     @FindBy(xpath="(//a[@class='btn-remove remove_from_compare fas fa-times'])[2]")
     public WebElement secondProductDeleteCruz;  // IPhone
 
+    @FindBy(css = "[name='add-to-cart']")
+    public WebElement addToCartButton;
+
+    @FindBy(xpath = "//div[@class='woocommerce-message alert alert-simple alert-btn alert-success']")
+    public WebElement productAddedText;
     //Methods
 
     public void searchProduct() {
@@ -71,5 +76,7 @@ public class P07_ShoppingPage {
         mainPage.homePage().searchBox.sendKeys(ConfigReader.getProperty("invalid_search") + Keys.ENTER);
         ReusableMethods.waitForSecond(3);
     }
+
+
 
 }

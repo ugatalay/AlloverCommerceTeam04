@@ -16,6 +16,10 @@ public class ConfigReader {
         }
         return properties.getProperty(key);
     }
+
+
+
+
     /*
     Bu method icinde olusturudugumuz Properties objectine key verdigimiz zaman bize vermis
     oldugumuz keyin configuration.properties dosyasindaki valuesunu return edecek

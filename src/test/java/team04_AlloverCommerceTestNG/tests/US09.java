@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
 import team04_AlloverCommerceTestNG.pages.P00_MainPage;
 import team04_AlloverCommerceTestNG.utilities.ConfigReader;
+import team04_AlloverCommerceTestNG.utilities.DataProviderUtils;
 import team04_AlloverCommerceTestNG.utilities.Driver;
 import team04_AlloverCommerceTestNG.utilities.ReusableMethods;
 
@@ -97,8 +98,8 @@ public class US09 {
 
     }
 
-    @Test
-    public void testCase03() {
+    @Test (dataProvider = "vendorRegisterNegativeMailData",dataProviderClass = DataProviderUtils.class)
+    public void testCase03_04_05_06(String mail) {
 
         // Web sitesine git
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -110,7 +111,7 @@ public class US09 {
         mainPage.registerPage().becomeAVendorLink.click();
 
        //  Email alanına veri  'Mustafa.gmail.com' gir
-        mainPage.vendorRegisterPage().emailBox.sendKeys("Mustafa.gmail.com");
+        mainPage.vendorRegisterPage().emailBox.sendKeys(mail);
 
         //  Verification Code alanına tıkla
         mainPage.vendorRegisterPage().verificationCodeBox.click();
@@ -126,16 +127,10 @@ public class US09 {
                 password,Keys.TAB,Keys.ENTER);
 
        //  Kayıt işleminin gerçekleşmediğini ve uyarı 'Please provide a valid email address.' çıktığını doğrula
-
-       // JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-       // String actualMessage = (String) js.executeScript("return arguments[0].textContent;",mainPage.vendorRegisterPage().mailSendMessage);
-//
         String actualMessage=mainPage.vendorRegisterPage().mailSendMessage.getAttribute("textContent");
-        System.out.println("------=======-------");
-        System.out.println(actualMessage);
         String expectedMessage="Please provide a valid email address.";
 
-        //Assert.assertEquals(actualMessage,expectedMessage);
+        Assert.assertEquals(actualMessage,expectedMessage);
 
 
     }

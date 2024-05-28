@@ -32,7 +32,8 @@ public class P14_VendorRegisterPage {
     @FindBy (xpath = "(//h1)[2]")
     public WebElement welcomePageText;
 
-    @FindBy (xpath = "(//div[@tabindex='-1'])[2]")
+    @FindBy (css= ".wcfm-message.wcfm-error")
     public WebElement mailSendMessage;
+
 
 }

@@ -65,11 +65,37 @@ public class P07_ShoppingPage {
 
     @FindBy(xpath = "//div[@class='woocommerce-message alert alert-simple alert-btn alert-success']")
     public WebElement productAddedText;
+
+    @FindBy(xpath = "//div[@class='woocommerce-message alert alert-simple alert-btn alert-success']/a[.='View cart']")
+    public WebElement viewCartButton;
+
+    @FindBy(xpath = "//td[@class='product-name']//a[.='Samsung Galaxy S23 Ultra']")
+    public WebElement productInCart;
+
+    @FindBy(xpath = "//button[@class='quantity-plus w-icon-plus']")
+    public WebElement quantityPlus;
+
+    @FindBy(xpath = "//button[@class='quantity-minus w-icon-minus']")
+    public WebElement quantityMinus;
+
     //Methods
 
-    public void searchProduct() {
+    public void searchProduct1() {
         mainPage.homePage().searchBox.sendKeys(ConfigReader.getProperty("product1")+ Keys.ENTER);
         ReusableMethods.waitForSecond(3);
+        ReusableMethods.click(mainPage.shoppingPage().addToCartButton);
+    }
+
+    public void searchProduct2() {
+        mainPage.homePage().searchBox.sendKeys(ConfigReader.getProperty("product2")+ Keys.ENTER);
+        ReusableMethods.waitForSecond(3);
+        ReusableMethods.click(mainPage.shoppingPage().addToCartButton);
+    }
+
+    public void searchProduct3() {
+        mainPage.homePage().searchBox.sendKeys(ConfigReader.getProperty("product3")+ Keys.ENTER);
+        ReusableMethods.waitForSecond(3);
+        ReusableMethods.click(mainPage.shoppingPage().addToCartButton);
     }
 
     public void invalidSearch() {

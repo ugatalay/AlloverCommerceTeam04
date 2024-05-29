@@ -7,6 +7,10 @@ import team04_AlloverCommerceTestNG.utilities.Driver;
 
 public class P02_RegisterPage {
 
+    public P02_RegisterPage() {
+        PageFactory.initElements(Driver.getDriver(),this);
+    }
+
 
 
 

@@ -23,7 +23,4 @@ public class P01_HomePage {
     @FindBy(xpath = "//span[.='Sign Out']")
     public WebElement myAccount;
 
-    /*   @FindBy(linkText = "Sign Out")
-public WebElement SignOutButton;*/
-
 }

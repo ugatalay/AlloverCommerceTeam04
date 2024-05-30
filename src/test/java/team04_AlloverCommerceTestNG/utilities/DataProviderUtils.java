@@ -21,12 +21,14 @@ public class DataProviderUtils {
         };
     }
 
-    @DataProvider(name = "invalidTestData")
-    public static Object[][] provideinvalidTestData() {
+    @DataProvider(name = "vendorRegisterNegativeMailData")
+    public static Object[][] NegativeMailData() {
         return new Object[][] {
-                { "ali" },   // invalidTestData
-                { "?" },
-                { "-5" }
+                { "Mustafa.gmail.com" },
+                { "Mustafa@gmail." },
+                { "Mustafa@.com" },
+                { "@gmail.com" }
+
         };
     }
 }

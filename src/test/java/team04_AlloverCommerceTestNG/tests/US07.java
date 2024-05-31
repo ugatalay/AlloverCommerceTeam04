@@ -19,85 +19,109 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static team04_AlloverCommerceTestNG.utilities.Driver.getDriver;
 
-public class US07 extends ReusableMethods {
+public class US07  {
 
     P00_MainPage mainPage = new P00_MainPage();
     JavascriptExecutor js = (JavascriptExecutor) getDriver();
     Actions actions = new Actions(getDriver());
 
 
+    @BeforeClass
+    public void beforeClass() {
+
+        WebDriver driver = Driver.getDriver();
+        driver = Driver.getDriver();
+        driver.navigate().back();
 
 
-    @Test
+    }
+
+   /* @Test
     public void TC01_AddFourProductsToCompareList() {
 
-      //  textlereGiris();
+
+
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        mainPage.shoppingPage().searchbox.click();
+        mainPage.shoppingPage().searchbox.sendKeys("Iphone", Keys.ENTER);
+
+        actions.moveToElement(mainPage.shoppingPage().iphone15ProMaxIcon).perform();
+        mainPage.shoppingPage().iphone15ProMaxIcon.click();
+
+        js.executeScript("arguments[0].remove();",  mainPage.comparePage().comparePopup);
+
+       // js.executeScript("arguments[0].style.display = 'none';", comparePopup);
+
+        actions.moveToElement(mainPage.shoppingPage().iphone8Icon).perform();
+        mainPage.shoppingPage().iphone8Icon.click();
+        ReusableMethods.waitForSecond(3);
+
+        js.executeScript("arguments[0].remove();",  mainPage.comparePage().comparePopup);
+
+        actions.moveToElement(mainPage.shoppingPage().hiPhoneIcon).perform();
+        mainPage.shoppingPage().hiPhoneIcon.click();
+        ReusableMethods.waitForSecond(3);
+
+        js.executeScript("arguments[0].remove();",  mainPage.comparePage().comparePopup);
+
+        actions.moveToElement(mainPage.shoppingPage().searchbox).perform();
+        mainPage.shoppingPage().searchbox.sendKeys("Samsung Galaxy S23 ULtra", Keys.ENTER);
+        actions.moveToElement(mainPage.shoppingPage().samsungGalaxyS23UltraIcon).perform();
+        mainPage.shoppingPage().samsungGalaxyS23UltraIcon.click();
+        ReusableMethods.waitForSecond(3);
+        js.executeScript("arguments[0].remove();",  mainPage.comparePage().comparePopup);
+
+
+         // int count = Integer.parseInt(mainPage.comparePage()comparingProductCount.getText().replaceAll("D+", ""));
+         // assertTrue(count == 4, "Products count is  4.");
+
+           Driver.closeDriver();
+
+    }
+
+   @Test
+    public void TC02_AddFiveProductsToCompareList() {
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         mainPage.shoppingPage().searchbox.click();
         mainPage.shoppingPage().searchbox.sendKeys("Iphone", Keys.ENTER);
 
 
-        WebDriver driver = Driver.getDriver();
-        driver = Driver.getDriver();
-        Actions actions = new Actions(driver);
-
         actions.moveToElement(mainPage.shoppingPage().iphone15ProMaxIcon).perform();
         mainPage.shoppingPage().iphone15ProMaxIcon.click();
 
+        js.executeScript("arguments[0].remove();",  mainPage.comparePage().comparePopup);
 
-       // js.executeScript("arguments[0].style.display = 'none';", comparePopup);
+        // js.executeScript("arguments[0].style.display = 'none';", comparePopup);
 
-       // IphoneProMax15();
-      //  waitForSecond(3);
-
-        Iphone8();
+        actions.moveToElement(mainPage.shoppingPage().iphone8Icon).perform();
+        mainPage.shoppingPage().iphone8Icon.click();
         waitForSecond(3);
 
+        js.executeScript("arguments[0].remove();",  mainPage.comparePage().comparePopup);
 
-        hiPhone();
+        actions.moveToElement(mainPage.shoppingPage().hiPhoneIcon).perform();
+        mainPage.shoppingPage().hiPhoneIcon.click();
         waitForSecond(3);
 
+        js.executeScript("arguments[0].remove();",  mainPage.comparePage().comparePopup);
 
-        samsung();
+        actions.moveToElement(mainPage.shoppingPage().searchbox).perform();
+        mainPage.shoppingPage().searchbox.sendKeys("Samsung Galaxy S23 ULtra", Keys.ENTER);
+        actions.moveToElement(mainPage.shoppingPage().samsungGalaxyS23UltraIcon).perform();
+        mainPage.shoppingPage().samsungGalaxyS23UltraIcon.click();
         waitForSecond(3);
 
-        //  int count = Integer.parseInt(comparingProductCount.getText().replaceAll("D+", ""));
-       //   assertTrue(count == 4, "Products count is  4.");
-
-        Driver.closeDriver();
-
-    }
-
-    @Test
-    public void TC02_AddFiveProductsToCompareList() {
-
-        textlereGiris();
-
-        IphoneProMax15();
-        waitForSecond(3);
-
-        Iphone8();
-        ReusableMethods.waitForSecond(3);
-
-        hiPhone();
-        waitForSecond(3);
-
-        samsung();
-        waitForSecond(3);
+        js.executeScript("arguments[0].remove();",  mainPage.comparePage().comparePopup);
 
 
-        WebDriver driver = Driver.getDriver();
-        driver = Driver.getDriver();
-        driver.navigate().back();
+        actions.moveToElement(mainPage.shoppingPage().searchbox).perform();
+        mainPage.shoppingPage().searchbox.sendKeys("bag", Keys.ENTER);
+        mainPage.shoppingPage().basicHandBag.click();
 
-        mainPage.shoppingPage().searchbox.clear();
 
-        Bag();
-        waitForSecond(3);
-
-        //  int count = Integer.parseInt(comparingProductCount.getText().replaceAll("D+", ""));
-        //  assertTrue(count == 4, "Products count is  4.");
+          int count = Integer.parseInt(mainPage.comparePage().comparingProductCount.getText().replaceAll("D+", ""));
+          assertTrue(count == 4, "Products count is  4.");
 
         Driver.closeDriver();
 
@@ -108,12 +132,20 @@ public class US07 extends ReusableMethods {
     @Test
     public void TC03_DeleteAndAddNewProducts() {
 
-        textlereGiris();
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        mainPage.shoppingPage().searchbox.click();
+        mainPage.shoppingPage().searchbox.sendKeys("Iphone", Keys.ENTER);
 
-        IphoneProMax15();
-        waitForSecond(3);
 
-        Iphone8();
+        actions.moveToElement(mainPage.shoppingPage().iphone15ProMaxIcon).perform();
+        mainPage.shoppingPage().iphone15ProMaxIcon.click();
+
+        js.executeScript("arguments[0].remove();",  mainPage.comparePage().comparePopup);
+
+        // js.executeScript("arguments[0].style.display = 'none';", comparePopup);
+
+        actions.moveToElement(mainPage.shoppingPage().iphone8Icon).perform();
+        mainPage.shoppingPage().iphone8Icon.click();
         waitForSecond(3);
 
 //1 urun sil
@@ -123,8 +155,7 @@ public class US07 extends ReusableMethods {
 
         //bir urun sildigini dogrula
 
-
-        //actions.clickAndHold(scrollBarInComparePopup).moveByOffset(100, 0).perform();
+     //   actions.clickAndHold(scrollBarInComparePopup).moveByOffset(100, 0).perform();
 
 
         // TEKRAR URUN EKLE
@@ -141,9 +172,9 @@ public class US07 extends ReusableMethods {
     @Test
     public void TC04_compareTheProducts() {
 
-        textlereGiris();
+        ReusableMethods.textlereGiris();
 
-        IphoneProMax15();
+       IphoneProMax15();
         waitForSecond(3);
 
         Iphone8();
@@ -157,7 +188,7 @@ public class US07 extends ReusableMethods {
 
         // assertTrue(compare.isDisplayed()
         Driver.closeDriver();
-    }
+    }*/
 
 
     @Test

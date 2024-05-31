@@ -5,6 +5,7 @@ import org.apache.xmlbeans.impl.xb.xsdschema.FieldDocument;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import team04_AlloverCommerceTestNG.pages.P00_MainPage;
 import team04_AlloverCommerceTestNG.utilities.ConfigReader;
@@ -22,7 +23,10 @@ public class US08 extends ReusableMethods {
     JavascriptExecutor jse = (JavascriptExecutor) getDriver();
 
 
+    @BeforeMethod
+    public void setUp() {
 
+    }
 
     @Test
     public void TC01_addProductToWishLIst() {
@@ -33,9 +37,11 @@ public class US08 extends ReusableMethods {
         mainPage.productPage().searchbox.sendKeys("MacBook", Keys.ENTER);
 
 
-        actions.moveToElement(mainPage.productPage().macBookV20).perform();
+        macBookV20Tikla();
+
+       /* actions.moveToElement(mainPage.productPage().macBookV20).perform();
         actions.moveToElement(mainPage.productPage().macBookV20Icon).perform();
-        mainPage.productPage.macBookV20Icon.click();
+        mainPage.productPage.macBookV20Icon.click(); */
 
           waitForSecond(3);
 

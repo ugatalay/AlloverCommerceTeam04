@@ -47,6 +47,7 @@ public class P08_ProductPage {
 
 
 
+
     @FindBy(xpath = "//button[@name='add-to-cart']")
     public WebElement addCartButton ;
 

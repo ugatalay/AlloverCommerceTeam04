@@ -36,26 +36,13 @@ public class P07_ShoppingPage{
     public WebElement samsungGalaxyS23UltraIcon;
 
 
-    @FindBy(xpath="//div[@class='compare-popup show']")
-    public WebElement comparePopup;
-
-
     @FindBy(xpath="(//a[@class='compare btn-product-icon'])[1]")
     public WebElement basicHandBag;
 
 
-
-
-
-// urun silmek icin
-
-
+    // urun silmek icin
     @FindBy(xpath="(//a[@class='btn-remove remove_from_compare fas fa-times'])[2]")
     public WebElement secondProductDeleteCruz;  // IPhone8
-
-
-    @FindBy(xpath="//a[@class='btn btn-dark btn-rounded']")
-    public WebElement compareButonu;
 
     @FindBy(xpath="//a[@class='compare-clean']")
     public WebElement cleanAllButonu;

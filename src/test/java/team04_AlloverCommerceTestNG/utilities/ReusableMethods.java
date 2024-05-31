@@ -323,8 +323,8 @@ public class ReusableMethods {
         driver = Driver.getDriver();
         Actions actions = new Actions(driver);
 
-        actions.moveToElement(mainPage.shoppingPage().compareButonu).perform();
-       mainPage.shoppingPage().compareButonu.click();
+        actions.moveToElement(mainPage.comparePage().compareButonu).perform();
+       mainPage.comparePage().compareButonu.click();
 
     }
 
@@ -335,8 +335,8 @@ public class ReusableMethods {
             driver = Driver.getDriver();
             Actions actions = new Actions(driver);
 
-            actions.moveToElement(mainPage.shoppingPage().comparePopup).perform();
-        mainPage.shoppingPage().comparePopup.click();
+            actions.moveToElement(mainPage.comparePage().comparePopup).perform();
+        mainPage.comparePage().comparePopup.click();
 
 
     }

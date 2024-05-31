@@ -35,5 +35,6 @@ public class P14_VendorRegisterPage {
     @FindBy (css= ".wcfm-message.wcfm-error")
     public WebElement mailSendMessage;
 
-
+    @FindBy (id= "password_strength")
+    public WebElement passwordStrengthType;
 }

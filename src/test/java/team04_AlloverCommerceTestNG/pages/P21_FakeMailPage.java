@@ -17,9 +17,11 @@ public class P21_FakeMailPage {
     @FindBy (xpath = "(//*[@fill='#5F6368'])[1]")
     public WebElement reklamClosedButton;
 
-    @FindBy (xpath = "(//tr[@data-href='2'])[1]")
+    @FindBy (xpath = "//td[contains(text(),'[Allover Commerce]')]")
     public WebElement verificationCodeMail;
 
     @FindBy (tagName = "b")
     public WebElement verificationCode;
+    @FindBy (css = "a[title='Delete this email address']")
+    public WebElement deleteButton;
 }

@@ -4,22 +4,22 @@ import org.testng.annotations.DataProvider;
 
 public class DataProviderUtils {
     static Faker faker = new Faker();
-    @DataProvider(name = "positiveTestData")
-    public static Object[][] provideBoundaryValueTestData() {
+    @DataProvider(name = "passwordInputNegativeData")
+    public static Object[][] negativePasswordData() {
+
         return new Object[][] {
-                { "18" },    // Alt sınır
-                { "30" },  // Geçerli yaş
-                { "100" },   // Üst sınır
+
+                { "sadecekucukharf" },
+                { "SADECEBUYUKHARF" },
+                { "12345678901234567890" },
+                { "-?=)(/&%+^'!" },
+                { "A1B2C3D4" }
+
         };
+
     }
 
-    @DataProvider(name = "negativeTestData")
-    public static Object[][] provideNegativeTestData() {
-        return new Object[][] {
-                { "17" },   // Alt sınırın altı
-                { "101" }   // Üst sınırın üstü
-        };
-    }
+
 
     @DataProvider(name = "vendorRegisterNegativeMailData")
     public static Object[][] NegativeMailData() {

@@ -1,23 +1,18 @@
 package team04_AlloverCommerceTestNG.tests;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
-import org.openqa.selenium.devtools.v122.page.Page;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
 import team04_AlloverCommerceTestNG.pages.P00_MainPage;
 import team04_AlloverCommerceTestNG.utilities.ConfigReader;
+import team04_AlloverCommerceTestNG.utilities.DataProviderUtils;
 import team04_AlloverCommerceTestNG.utilities.Driver;
 import team04_AlloverCommerceTestNG.utilities.ReusableMethods;
 
 public class US09 {
 
-    P00_MainPage mainPage = new P00_MainPage();
+     P00_MainPage mainPage = new P00_MainPage();
 
 
     @Test
@@ -33,6 +28,7 @@ public class US09 {
         mainPage.registerPage().becomeAVendorLink.click();
 
       // Email alanına veri gir
+        // Driver.getDriver().switchTo().newWindow(WindowType.TAB);
         Driver.getDriver().switchTo().newWindow(WindowType.TAB);
         Driver.getDriver().get(ConfigReader.getProperty("fakeMailUrl"));
         String fakeEmail = mainPage.fakeMailPage().fakeEmail.getText();
@@ -53,9 +49,9 @@ public class US09 {
         ReusableMethods.switchToWindow(0);
         mainPage.vendorRegisterPage().verificationCodeBox.sendKeys(code);
 
-      // Password alanına veri 'Pass12.%-' gir
-      // Confirm Password alanına aynı password'u 'Pass12.%-' gir
-      // Register butonu tıkla
+        // Password alanına veri 'Pass12.%-' gir
+        // Confirm Password alanına aynı password'u 'Pass12.%-' gir
+        // Register butonu tıkla
         String password="Pass12.%-";
         mainPage.vendorRegisterPage().passwordBox.sendKeys(password, Keys.TAB,
                 password,Keys.TAB,Keys.ENTER);
@@ -66,16 +62,101 @@ public class US09 {
     }
 
     @Test
-    public void testCase02() {
-      //  Web sitesine git
-      //  Register alanına tıkla
-      //  Açılan pop-up ta "Become a Vendor" alanına tıkla
+    public  void testCase02() {
+
+      // Web sitesine git
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+
+      // Register alanına tıkla
+         mainPage.homePage().registerButton.click();
+
+      // Açılan pop-up ta "Become a Vendor" alanına tıkla
+         mainPage.registerPage().becomeAVendorLink.click();
+
       //  Email alanını boş bırak
       //  Verification Code alanına tıkla
-      //  Verification Code alanına bir veri gir
-      //  Password alanına veri gir
-      //  Confirm Password alanına aynı password'u gir
-      //  Register butonu tıkla
-      //  Kayıt işleminin gerçekleşmediğini ve uyarı çıktığını doğrula
+         mainPage.vendorRegisterPage().verificationCodeBox.click();
+
+      //  Verification Code alanına bir veri '123' gir
+         mainPage.vendorRegisterPage().verificationCodeBox.sendKeys("123");
+
+      // Password alanına veri 'Pass12.%-' gir
+      // Confirm Password alanına aynı password'u 'Pass12.%-' gir
+      // Register butonu tıkla
+         String password="Pass12.%-";
+         mainPage.vendorRegisterPage().passwordBox.sendKeys(password, Keys.TAB,
+                password,Keys.TAB,Keys.ENTER);
+
+      //  Kayıt işleminin gerçekleşmediğini ve uyarı 'Email: This field is required.' çıktığını doğrula
+
+        String actualMessage=mainPage.vendorRegisterPage().verificationSendMessage.getAttribute("textContent");
+        String expectedMessage ="Email: This field is required.";
+
+        Assert.assertEquals(actualMessage,expectedMessage);
+
+    }
+
+    @Test (dataProvider = "vendorRegisterNegativeMailData",dataProviderClass = DataProviderUtils.class)
+    public void testCase03_04_05_06(String mail) {
+
+        // Web sitesine git
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+
+        // Register alanına tıkla
+        mainPage.homePage().registerButton.click();
+
+        // Açılan pop-up ta "Become a Vendor" alanına tıkla
+        mainPage.registerPage().becomeAVendorLink.click();
+
+       //  Email alanına veri  'Mustafa.gmail.com' gir
+        mainPage.vendorRegisterPage().emailBox.sendKeys(mail);
+
+        //  Verification Code alanına tıkla
+        mainPage.vendorRegisterPage().verificationCodeBox.click();
+
+        //  Verification Code alanına bir veri '123' gir
+        mainPage.vendorRegisterPage().verificationCodeBox.sendKeys("123");
+
+        // Password alanına veri 'Pass12.%-' gir
+        // Confirm Password alanına aynı password'u 'Pass12.%-' gir
+        // Register butonu tıkla
+        String password="Pass12.%-";
+        mainPage.vendorRegisterPage().passwordBox.sendKeys(password, Keys.TAB,
+                password,Keys.TAB,Keys.ENTER);
+
+       //  Kayıt işleminin gerçekleşmediğini ve uyarı 'Please provide a valid email address.' çıktığını doğrula
+        String actualMessage=mainPage.vendorRegisterPage().mailSendMessage.getAttribute("textContent");
+        String expectedMessage="Please provide a valid email address.";
+
+        Assert.assertEquals(actualMessage,expectedMessage);
+
+
+    }
+    @Test      //(description = "US 09 - TC 07  Vendor Registration without veritification code")
+    public void vendorRegistrationwWithoutCode() {
+
+        // Web sitesine git
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+
+        // Register alanına tıkla
+        mainPage.homePage().registerButton.click();
+
+        // Açılan pop-up ta "Become a Vendor" alanına tıkla
+        mainPage.registerPage().becomeAVendorLink.click();
+
+        // Email alanına veri gir
+        ReusableMethods.vendorRegisterMailInput();
+
+        //  Verification Code alanına tıkla
+        mainPage.vendorRegisterPage().verificationCodeBox.click();
+
+        // Password alanına veri 'Pass12.%-' gir
+        // Confirm Password alanına aynı password'u 'Pass12.%-' gir
+        // Register butonu tıkla
+        String password="Pass12.%-";
+        mainPage.vendorRegisterPage().passwordBox.sendKeys(password, Keys.TAB,
+                password,Keys.TAB,Keys.ENTER);
+
+        // Kayıt işleminin gerçekleşmediğini ve uyarı çıktığını doğrula
     }
 }

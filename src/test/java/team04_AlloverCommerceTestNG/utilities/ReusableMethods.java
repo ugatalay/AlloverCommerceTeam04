@@ -252,6 +252,7 @@ public class ReusableMethods {
     }
 
 
+
     public static void textlereGiris() {
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -379,5 +380,26 @@ public class ReusableMethods {
         mainPage.productPage().wishlistIcon.click();
 
     }
+
+    //US01 icin gerekli
+    public static void customerlogin(String username, String email, String password) {
+        P00_MainPage mainPage = new P00_MainPage();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(mainPage.registerPage().userNameBox)).sendKeys(username);
+        wait.until(ExpectedConditions.visibilityOf(mainPage.registerPage().yourEmailBox)).sendKeys(email);
+        wait.until(ExpectedConditions.visibilityOf(mainPage.registerPage().passWordBox)).sendKeys(password);
+    }
+
+    public static void click1(WebElement element) {
+        try {
+            element.click();
+        } catch (Exception e) {
+            JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+            js.executeScript("arguments[0].click();", element);
+        }
+    }
+
+
+
 
 }

@@ -9,8 +9,8 @@ public class P00_MainPage {
         private P04_MyAccountPage myAccountPage;
         private P05_AddressesPage addressesPage;
         private P06_AccountDetails accountDetails;
-        private P07_ShoppingPage shoppingPage;
-        private P08_ProductPage productPage;
+        private static P07_ShoppingPage shoppingPage;
+        public static P08_ProductPage productPage;
         private P09_CartPage cartPage;
         private P10_CheckOutPage checkOutPage;
         private P11_OrderCompletePage orderCompletePage;
@@ -75,7 +75,7 @@ public class P00_MainPage {
         return shoppingPage;
     }
 
-    public P08_ProductPage productPage(){
+    public  P08_ProductPage productPage(){
         if(productPage == null) {
             productPage = new P08_ProductPage();
         }

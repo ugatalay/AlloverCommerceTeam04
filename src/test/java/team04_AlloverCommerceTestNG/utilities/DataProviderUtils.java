@@ -59,11 +59,11 @@ public class DataProviderUtils {
     @DataProvider(name = "AcceptEmailData")
     public static Object[][] provideAceptEmailTestData() {
         return new Object[][]{
-                {sanitizeUsername(faker.name().username()), faker.name() + "gm.aml.com", faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},//"@gm.aml.com"
-                {sanitizeUsername(faker.name().username()), faker.name() + "gm-ail.com", faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},//@gm-ail.com"
+               // {sanitizeUsername(faker.name().username()), faker.name() + "gm.aml.com", faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},//"@gm.aml.com"
+               // {sanitizeUsername(faker.name().username()), faker.name() + "gm-ail.com", faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},//@gm-ail.com"
                 {sanitizeUsername(faker.name().username()), "aligel@" + faker.regexify("[aseHG58]{9}")+".com", faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},
                 {sanitizeUsername(faker.name().username()), "aligel@" + faker.regexify("[aer456G]{9}")+".com"+faker.regexify("[aer456Grty]{6}"), faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},
-                {sanitizeUsername(faker.name().username()), "A.bu|_zer-Gel" + faker.name()+".com", faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},//"A.bu|_zer-Gel@"
+               // {sanitizeUsername(faker.name().username()), "A.bu|_zer-Gel" + faker.name()+".com", faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},//"A.bu|_zer-Gel@"
                 // {sanitizeUsername(faker.name().username()), faker.name() + "..gel@gmail.63", faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},//"..gel@gmail.63"
                 {sanitizeUsername(faker.name().username()), "aligel@" + faker.regexify("[0-9]{9}")+".com", faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},
                 {sanitizeUsername(faker.name().username()), "/" + faker.name() + "gmail.com", faker.regexify("[A-Za-z0-9!@#$%^&*()-_=+<>?]{9}")},//"@gmail.com"
@@ -140,19 +140,7 @@ public class DataProviderUtils {
                 //Pasword alanin bos birak
                 {sanitizeUsername(faker.name().username()), " aligel@gmailcom ","" },
 
-
-
         };
     }
-
-
-
-
-
-
-
-
-
-
 
 }

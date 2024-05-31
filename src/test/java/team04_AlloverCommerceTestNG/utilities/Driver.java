@@ -56,4 +56,7 @@ import java.time.Duration;
                 driverPool.remove(); // ThreadLocal'daki referansı temizliyoruz.
             }
         }
+
+
+
     }

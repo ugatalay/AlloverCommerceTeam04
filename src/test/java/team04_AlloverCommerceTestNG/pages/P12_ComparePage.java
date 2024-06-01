@@ -22,4 +22,8 @@ public class P12_ComparePage {
     public WebElement comparingProductCount;
 
 
+    @FindBy(xpath = "//div[@class='main-content']")
+    public WebElement compareField;
+
+
 }

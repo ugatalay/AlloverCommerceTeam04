@@ -22,11 +22,10 @@ public class US08 extends ReusableMethods {
 
     JavascriptExecutor jse = (JavascriptExecutor) getDriver();
 
+    JavascriptExecutor js = (JavascriptExecutor) getDriver();
 
-    @BeforeMethod
-    public void setUp() {
 
-    }
+
 
     @Test
     public void TC01_addProductToWishLIst() {
@@ -37,24 +36,26 @@ public class US08 extends ReusableMethods {
         mainPage.productPage().searchbox.sendKeys("MacBook", Keys.ENTER);
 
 
-        macBookV20Tikla();
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().macBookV20);
 
-       /* actions.moveToElement(mainPage.productPage().macBookV20).perform();
-        actions.moveToElement(mainPage.productPage().macBookV20Icon).perform();
-        mainPage.productPage.macBookV20Icon.click(); */
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().macBookV20Icon);
+        js.executeScript("arguments[0].click()",mainPage.productPage().macBookV20Icon);
+        ReusableMethods.waitForSecond(3);
 
-          waitForSecond(3);
 
-        actions.moveToElement(mainPage.productPage().macBookPro).perform();
-        waitForSecond(3);
-        actions.moveToElement(mainPage.productPage().macBookProIcon).perform();
-        waitForSecond(3);
-        mainPage.productPage().macBookProIcon.click();
 
-          waitForSecond(3);
 
-        actions.moveToElement(mainPage.productPage().wishlistIcon).perform();
-        mainPage.productPage().wishlistIcon.click();
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().macBookPro);
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().macBookProIcon);
+        js.executeScript("arguments[0].click()",mainPage.productPage().macBookProIcon);
+        ReusableMethods.waitForSecond(3);
+
+
+
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().wishlistIcon);
+        js.executeScript("arguments[0].click()",mainPage.productPage().wishlistIcon);
+        ReusableMethods.waitForSecond(3);
+
 
         Assertions.assertTrue(mainPage.productPage().wishlistIcon.isEnabled(),"Kullanıcı sectigi urunleri WishListe ekleyebildi.");
 
@@ -71,22 +72,22 @@ public class US08 extends ReusableMethods {
         mainPage.productPage().searchbox.sendKeys("MacBook", Keys.ENTER);
 
 
-        actions.moveToElement(mainPage.productPage().macBookV20).perform();
-        actions.moveToElement(mainPage.productPage().macBookV20Icon).perform();
-        mainPage.productPage.macBookV20Icon.click();
 
-        waitForSecond(3);
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().macBookV20);
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().macBookV20Icon);
+        js.executeScript("arguments[0].click()",mainPage.productPage().macBookV20Icon);
+        ReusableMethods.waitForSecond(3);
 
-        actions.moveToElement(mainPage.productPage().macBookPro).perform();
-        waitForSecond(3);
-        actions.moveToElement(mainPage.productPage().macBookProIcon).perform();
-        waitForSecond(3);
-        mainPage.productPage().macBookProIcon.click();
 
-        waitForSecond(3);
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().macBookPro);
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().macBookProIcon);
+        js.executeScript("arguments[0].click()",mainPage.productPage().macBookProIcon);
+        ReusableMethods.waitForSecond(3);
 
-        actions.moveToElement(mainPage.productPage().wishlistIcon).perform();
-        mainPage.productPage().wishlistIcon.click();
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().wishlistIcon);
+        js.executeScript("arguments[0].click()",mainPage.productPage().wishlistIcon);
+        ReusableMethods.waitForSecond(3);
+
 
         Assertions.assertTrue(mainPage.productPage().whishListPageText.getText().contains("Wishlist"),"kullanıcı eklemis oldugu urunleri wishliste gorebildi ");
 
@@ -102,40 +103,45 @@ public class US08 extends ReusableMethods {
         mainPage.productPage().searchbox.sendKeys("MacBook", Keys.ENTER);
 
 
-        actions.moveToElement(mainPage.productPage().macBookV20).perform();
-        actions.moveToElement(mainPage.productPage().macBookV20Icon).perform();
-        mainPage.productPage.macBookV20Icon.click();
-
-        waitForSecond(3);
-
-        actions.moveToElement(mainPage.productPage().macBookPro).perform();
-        waitForSecond(3);
-        actions.moveToElement(mainPage.productPage().macBookProIcon).perform();
-        waitForSecond(3);
-        mainPage.productPage().macBookProIcon.click();
-
-        waitForSecond(3);
-
-        actions.moveToElement(mainPage.productPage().wishlistIcon).perform();
-        mainPage.productPage().wishlistIcon.click();
-
-        waitForSecond(3);
-
-        actions.moveToElement(mainPage.productPage().quickButton1).perform();
-        mainPage.productPage().quickButton1.click();
-
-        waitForSecond(3);
-
-
-        actions.moveToElement(mainPage.productPage().closeButton).perform();
-        mainPage.productPage().closeButton.click();
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().macBookV20);
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().macBookV20Icon);
+        js.executeScript("arguments[0].click()",mainPage.productPage().macBookV20Icon);
+        ReusableMethods.waitForSecond(3);
 
 
 
-        waitForSecond(3);
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().macBookPro);
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().macBookProIcon);
+        js.executeScript("arguments[0].click()",mainPage.productPage().macBookProIcon);
+        ReusableMethods.waitForSecond(3);
 
-        actions.moveToElement(mainPage.productPage().quickButton2).perform();
-         mainPage.productPage().quickButton2.click();
+
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().wishlistIcon);
+        js.executeScript("arguments[0].click()",mainPage.productPage().wishlistIcon);
+        ReusableMethods.waitForSecond(3);
+
+
+
+
+
+
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().quickButton1);
+        js.executeScript("arguments[0].click()",mainPage.productPage().quickButton1);
+        ReusableMethods.waitForSecond(3);
+
+
+
+
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().closeButton);
+        js.executeScript("arguments[0].click()",mainPage.productPage().closeButton);
+        ReusableMethods.waitForSecond(3);
+
+
+
+        js.executeScript("arguments[0].scrollIntoView(true)",mainPage.productPage().quickButton2);
+        js.executeScript("arguments[0].click()",mainPage.productPage().quickButton2);
+        ReusableMethods.waitForSecond(3);
+
 
         Driver.closeDriver();
 
@@ -146,7 +152,7 @@ public class US08 extends ReusableMethods {
     public void TC04_addProductAndBuyIt() {
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-
+        mainPage.productPage().searchbox.click();
         mainPage.productPage().signInButton.click();
 
 

@@ -137,8 +137,7 @@ public class P07_ShoppingPage {
 
 
     @FindBy(xpath="(//a[@class='compare btn-product-icon'])[1]")
-    public WebElement basicHandBag;
-
+    public WebElement basicHandBagIcon;
 
 
 

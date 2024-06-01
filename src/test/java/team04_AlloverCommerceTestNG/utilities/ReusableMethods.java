@@ -314,7 +314,7 @@ public class ReusableMethods {
 
         actions.moveToElement(mainPage.shoppingPage().searchbox).perform();
         mainPage.shoppingPage().searchbox.sendKeys("bag", Keys.ENTER);
-     mainPage.shoppingPage().basicHandBag.click();
+     mainPage.shoppingPage().basicHandBagIcon.click();
 
     }
 
@@ -328,9 +328,7 @@ public class ReusableMethods {
        mainPage.comparePage().compareButonu.click();
 
     }
-
-
-        public static void comparePopArea() {
+    public static void comparePopup() {
 
             WebDriver driver = Driver.getDriver();
             driver = Driver.getDriver();

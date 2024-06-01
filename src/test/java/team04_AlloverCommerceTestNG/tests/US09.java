@@ -460,8 +460,6 @@ public class US09 {
         //  Kayıt işleminin gerçekleşmediğini ve 'This Email already exists. Please login to the site and apply as vendor.' uyarısı çıktığını doğrula
         String actualMessage=mainPage.vendorRegisterPage().mailSendMessage.getAttribute("textContent");
         String expectedMessage="This Email already exists. Please login to the site and apply as vendor.";
-        System.out.println("==========");
-        System.out.println(actualMessage);
 
         Assert.assertEquals(actualMessage,expectedMessage);
 
